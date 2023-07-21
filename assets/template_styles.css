@@ -9,16 +9,17 @@ body{
     font-size: 100%;
 }
 
-
 .header{
     background-color: var(--base-back);
 }
+
 h1{
     color:white;
     text-align: left;
 }
 
 /* -- navigation --- */
+
 .navbar{
     background-color:  var(--black);
     border-bottom: 1px solid black;
@@ -45,14 +46,9 @@ footer{
     color: white;
 }
 
-
 .row{
     background-color: var(--base-back);
 }
-
-
-
-
 
 video{
     max-height: 300px;
