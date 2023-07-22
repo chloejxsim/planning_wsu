@@ -140,7 +140,16 @@
         <li class="list-group-item d-flex justify-content-between align-items-start">
             <div class="ms-2 me-auto">
                 <div class="fw-bold">Sustainability and Future Proofing</div>
-                Content for list item
+                The database should be easily maintained by the administrator, and any edits that need to be made are
+                central to only one area. This isn't true for database tables such as news where other tables
+                like member needs to be referenced with a foreign key, or with comments, where two foreign keys -
+                user and news are both referred to. Therefore, if any changes are made to the member table, then all
+                tables that reference this member table with a foreign key will automatically adjust with the changes
+                instead of needing to manually change each member within each table.
+                For the creation of the 'draw', I initially planned to have three different tables - grade, round, and
+                finally the draw - however, this excessive and in order to reduce resources and to make it easier to
+                maintain everything, I condensed everything into one table. In this situation, the grade, round and draw
+                did not have to be separate entities, and could still effectively operate in one table.
             </div>
             <span class="badge bg-primary rounded-pill">14</span>
         </li>
@@ -148,7 +157,18 @@
         <li class="list-group-item d-flex justify-content-between align-items-start">
             <div class="ms-2 me-auto">
                 <div class="fw-bold">End User Considerations</div>
-                Content for list item
+                The data in the database, and ability to enter, delete and edit data should be queried and displayed in
+                a way that is easy for users to understand and to use. Many of the users in the UX interviews
+                preferred designs that were simple and modern, with not too much block text. Therefore, the
+                styling and forms that have been created so that users can interact with the databases is designed
+                in this way. Additionally, all of these forms have catches that prevent users from submitting forms with
+                incorrect (e.g. not putting in a valid email address in the sign-up form) or impartial information (e.g.
+                when submitting a post to the upcoming events section or recent news). Although most of the design
+                elements in the site have consideration of viewers who are using different devices (e.g. a mobile phone),
+                I have not necessarily considered these varying screen sizes when it comes to the design and styling of
+                the forms thus far. Whilst they should still be usable, they may not be to the standard that is
+                comfortable for all types of users.
+
             </div>
             <span class="badge bg-primary rounded-pill">14</span>
         </li>
@@ -156,7 +176,13 @@
         <li class="list-group-item d-flex justify-content-between align-items-start">
             <div class="ms-2 me-auto">
                 <div class="fw-bold">Usability</div>
-                Content for list item
+                In the end, I think that usability is not necessarily maximised for all types of users. With the
+                resources available, they have primarily been optimised for a user on a laptop or computer, with
+                significant efforts made to adjust design elements and features for mobile users as well. This may
+                mean that some features like entering a post may be difficult for users on mobile devices
+                which is a flaw of this site. However, the website is broadly easy to navigate with a sticky nav bar
+                that allows users to immediately navigate to other pages if they cannot find the information that
+                they need, or if they clicked something wrong.
             </div>
             <span class="badge bg-primary rounded-pill">14</span>
         </li>
@@ -166,43 +192,6 @@
     <hr>
 
 </div>
-
-<!-- MR KHOURI EXAMPLE -->
-
-    <ul>
-
-        <li><h4>Privacy:</h4> To be honest we have not done much about privacy. But the database should not be directly
-        accessible by the user. For example http://127.0.0.1:5000/data should not take us to the data folder.<br>
-        You can test and see that it doesn't. Passwords should be hashed, and the minum of personal data should be connected from the user.<br>
-        For example, there is no point collecting their address and phone number.</li>
-
-        <li><h4>Functionality:</h4> This means that the database should work properly. It should not have errors and the data
-        should be completely consistent between different cells in the same column. For example, using the SQLite data format
-        "YYYY-MM-DD HH:MM:00". Foreign key references need to be correct, so, for example, the correct member is associated
-        with the news post that they made. Functionality is addressed by creating precise entity relationship diagrams, creating an
-        sql installer fiile so that small changes and corrections are easy to implement and by comprehensive testing of the database output
-        on the web pages</li>
-
-        <li><h4>Sustainability and Future Proofing:</h4> This means that the database should be easy to maintain.<br>
-        Any corrections to names, titles or dates should only happen in one place in the database. If they need to be used in other tables
-        they should be referenced using foreign keys. An example of this could be the members or users stored in the database.
-        If their names are to be used in another part of the database, for example associated with posting a news item, there should be
-        a foreign key reference in the news table. This means that if a name is updated or other details added, then the new
-        name would appear in the news item, without any changes having to be made there.<br>
-        Overall the database tables should be for different 'entities', people, dance classes, news items, schedule items etc.
-        This also makes it easy to add new tables without altering what is already there.
-        </li>
-
-        <li><h4>End user considerations:</h4> The data in the database needs to be queried and presented in a way that caters
-        to the users needs.<br>
-        It should be presented in a clear organised structure and formatted to meet the expectations that users have for a modern website.<br>
-        Forms that allow the user to add, update or delete entries in the database should be simple to use and have validation
-        (or 'undos') to help the user avoid entering in incorrect or partial information.
-        </li>
-
-    </ul>
-
-<!-- MR KHOURI EXAMPLE ENDS HERE -->
 
     <h3> Initial Designs</h3>
 
