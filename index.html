@@ -62,7 +62,7 @@
 <div class="container-lg">
 
     <h2>Brief</h2>
-        <p> This year, I was asked to create a website for the Welligton Speaking Union (WSU),
+        <p> This year, I was asked to create a website for the Wellington Speaking Union (WSU),
         an organisation that runs public speaking and debating tournaments for students. <br>
         Their old website was outdated, and Brooke, the current President of WSU wanted a redone site
         for their use. <br>
@@ -193,17 +193,39 @@
 
 </div>
 
-    <h3> Initial Designs</h3>
+    <h3>Initial Designs</h3>
 
-    <p> This is my staring design for a database for the pasta site. The news page will be an important way of keep
-        people up to date with the latest events. Authorised users should be able to add a news event easily and should
-    also be able to update or delete one.<br>
-    This is the first priority.<br>
-    Other useful features of the database are all the items on the menu, combo deals and also a members table.</p>
-    <a href="https://app.diagrams.net/#G1iioj8T2Ml0xZBWP1JuOvW72UuVFE5KJW" target="_blank"> draw.io db planning doc</a>
-    <img class="img-fluid mx-auto d-block w-75 my-5" src="assets/images/PasteriaPlanning-Pasta_DB_plan_updated.png" alt="Three browser views">
+    <p> For the WSU site, I first started to plan out what database tables I wanted to include. This also helps me to
+        keep track of where foreign keys should be used instead of an entirely new identity, and also to examine how
+        the tables all interconnect and interact with each other. The first table that I needed to include was the
+        member table as this impacts other tables.
+        <ul>
+        <li>
+        On the news page, there are three tables - comments, recent news and upcoming events. Therefore, this
+        is the page where most of the database activity is occurring. Since WSU is an organisation that arranges
+        debates and public speaking competitions, recent news and upcoming events will be key features of the site
+        and therefore, should be prioritised. This allows all four groups of expected users: teachers, students,
+        coaches as well as judges to be able to keep up with events that they can attend, and what happened at those
+        various competitions. For the administrators, or other authorised users, this will be the hub for keeping
+        those users up-to-date, and it should be easy for them to use the forms to post, edit and delete various
+        news items.
+        </li>
+        <li>
+        Another useful database that is not set in the "news" page is the draw table. This was a popular demand from
+        the interviews conducted in the planning stage. Many students and coaches like to keep up to date with who
+        their teams will be debating, and also to look back on what debates have already happened.
+        </li>
+        </ul>
 
-    <h3>Sprint (Number)</h3>
+    This is the updated database schema/plan for the databases on the WSU site:
+    <img class="img-fluid mx-auto d-block w-75 my-5" src="assets/images/database_schema_updated.png" alt="Final Database Schema">
+
+    Initial database scheme which was changed because three tables were not needed for the "draw" section of the site:
+    <img class="img-fluid mx-auto d-block w-75 my-5" src="assets/images/database_schema.png" alt="Database Schema">
+
+    <!-- SPRINTS -->
+
+    <h3>Sprint Six</h3>
     <h4> Aim: </h4>
     <p>To create the first iteration of the database:
         Build only two linked tables: news and member tables.
