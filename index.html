@@ -334,14 +334,23 @@
     <p>The data plan for these tables is below</p>
     <img class="img-fluid mx-auto d-block w-75 my-5" src="assets/images/place_holder_sm.jpg"  alt="Database Plans">
 
-    <p>Screenshots of the sql installer file and a test in a Python test file</p>
+    <p style="text-align:center"> <b>Screenshots of the SQL installer file</b> </p>
 
     <div class="row mb-3">
         <div class="col-md-6 my-2">
-           <img class="img-fluid mx-auto d-block" src="assets/images/sql_cap.png">
+           <img class="img-fluid mx-auto d-block" src="assets/images/SQLinstaller.png">
         </div>
         <div class="col-md-6 my-2">
-            <img class="img-fluid mx-auto d-block" src="assets/images/test_python_news.png">
+            <img class="img-fluid mx-auto d-block" src="assets/images/SQLinstaller2.png">
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-6 my-2">
+           <p style="text-align:center"> News Testing -> </p>
+        </div>
+        <div class="col-md-6 my-2">
+            <img class="img-fluid mx-auto d-block" src="assets/images/S8_news_test.png">
         </div>
     </div>
 
@@ -378,70 +387,73 @@
         <li> Implement more code that will mean that the database items are outputted onto the news page. </li>
     </ul>
 
-    <p> Run and test </p>
-
     <a href="">Planning Board for News Page</a>
      <img class="img-fluid mx-auto d-block w-75 my-5" src="assets/images/place_holder_sm.jpg" alt="Planning Board Screenshot">
-    <p> This is my build for the news page. It is purely 'front-end'. This means that all the html and CSS has been worked out.
-    The buttons are not functional, but are part of the design as an authorised user will need these.</p>
-    <img class="img-fluid mx-auto d-block w-75 my-5" src="assets/images/newsdummy.png" alt="Three browser views">
 
-<p> Implementing the code to read from the database and output onto the page</p>
+    <p>
+        This is my front-end build for the news page. I tested all the HTML and CSS so that I had an idea of how I wanted
+        my news items to sit. The buttons are not functional, but are part of the design as an authorised user will need these.
+    </p>
+
+    <div class="row">
+        <div class="col-md-5 mx-auto">
+           <img class="img-fluid mx-auto d-block h-75" src="assets/images/S7_news_example.png">
+        </div>
+        <div class="col-md-5 mx-auto">
+            <img class="img-fluid mx-auto d-block h-75" src="assets/images/S7_news_buttons.png">
+        </div>
+    </div>
+
+    <br>
+
+<p>
+    Adding in the code into the database, as well as into the page itself so that the data can be outputted.
+</p>
 
 <div class="row">
     <div class="col-md-6">
         <h4> server.py news route code</h4>
-        <pre><code class="Python"># interesting comment
-        @app.route('/news')
-        def news():
-            # query for the page
-            sql = """select news.news_id, news.title, news.subtitle, news.content, news.newsdate, member.name
-               from news
-               join member on news.member_id= member.member_id
-               order by news.newsdate desc;
-               """
-            result = run_search_query_tuples(sql, (), db_path, True)
-            print(result)
-            return render_template("news.html", news=result)
-            </code></pre>
+        <pre>
+            <code class="Python">
+            @app.route ('/news')
+            def news():
+            # query for the recent news portion of the page
+            sql = """select news.news_id, news.title, news.subtitle, news.content, news.newsdate, member.firstname
+            from news
+            join member on news.member_id = member.member_id
+            order by news.newsdate desc;
+            """
+            news_items = run_search_query_tuples(sql, (), db_path, True)
+            return render_template("news.html", news=news_items, comments=comments, schedule=schedule)
+            </code>
+        </pre>
       </div>
     <div class="col-md-6">
         <h4> news.html code</h4>
-        <pre><code class="html">
-            &lt;div class=&quot;container-lg py-sm-5 py-1&quot;&gt;
-             &lt;h1&gt; News&lt;/h1&gt;
-            &lt;div class=&quot;news p-4 my-4 text-end&quot;&gt;
-                &lt;a class=&quot;btn btn-primary&quot; href=&quot;{{ url_for(&apos;news_cud&apos;, id=0, task=&apos;add&apos;) }}&quot;&gt;Add News&lt;/a&gt;
-            &lt;/div&gt;
-            {% for row in news %}
-            &lt;div class=&quot;news p-4 my-4&quot;&gt;
-            &lt;h2&gt; {{ row[&apos;title&apos;] }}&lt;/h2&gt;
-                &lt;div class=&quot;subtitle&quot;&gt; {{ row[&apos;subtitle&apos;] }}&lt;/div&gt;
-                &lt;p class=&quot;news-text&quot;&gt; {{ row[&apos;content&apos;] | replace(&quot;\n&quot;, &quot;&lt;br&gt;&quot;) | safe}} &lt;/p&gt;
-                &lt;div class=&quot;news-meta&quot;&gt;Posted by {{ row[&apos;name&apos;] }} on {{ row[&apos;newsdate&apos;] | news_date }}&lt;/div&gt;
-                &lt;div class=&quot;news-meta&quot;&gt;
-                    &lt;a class=&quot;btn btn-primary&quot; href=&quot;{{ url_for(&apos;news_cud&apos;, id=row[&apos;news_id&apos;], task=&apos;update&apos;) }}&quot;&gt;Update&lt;/a&gt;
-                    &lt;a class=&quot;btn btn-primary&quot; href=&quot;{{ url_for(&apos;news_cud&apos;, id=row[&apos;news_id&apos;], task=&apos;delete&apos;) }}&quot;&gt;Delete&lt;/a&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-            {% endfor %}
-        &lt;/div&gt;
-        </code>
-        </pre>
+        <img class="img-fluid mx-auto d-block" src="assets/images/place_holder_sm.jpg">
     </div>
-</div>
+  </div>
 
- <p> Testing </p>
+    <br>
+
+ <h3> Testing </h3>
         <div class="row mb-3">
-        <div class="col-md-6 my-2">
-             <h4> Printing outputs from the query (row factory objects) as a test</h4>
-           <img class="img-fluid mx-auto d-block" src="assets/images/rowobjects_server_log.png">
+        <div class="col-md-4 my-2">
+            <h4> Initial test of the post command </h4>
+            <img class="img-fluid mx-auto d-block" src="assets/images/S8_initialtest.png">
         </div>
-        <div class="col-md-6 my-2">
-            <h4> News items on the webpage </h4>
-            <img class="img-fluid mx-auto d-block" src="assets/images/newsprintout.png">
+        <div class="col-md-4 my-2">
+            <h4> Server route midway-through </h4>
+            <img class="img-fluid mx-auto d-block" src="assets/images/S8_before.png">
+        </div>
+        <div class="col-md-4 my-2">
+            <h4> Server route at the end </h4>
+            <img class="img-fluid mx-auto d-block" src="assets/images/S8_after.png">
         </div>
         </div>
+
+    <h4> Full server route </h4>
+    <img class="img-fluid mx-auto d-block w-50 my-5" src="assets/images/S8_serverroute.png" alt="Server Route">
 
     <h5>Reflection</h5>
     <p>
@@ -455,7 +467,7 @@
 <!-- ******************************************************* -->
 <!-- Sprint Eight -->
 
-    <h3> print Eight </h3>
+    <h3> Sprint Eight </h3>
 
     <h4> Aim: Create a form (news_cud) that allows the authorised users to create, update, and delete news items </h4>
 
@@ -465,7 +477,6 @@
         <li> On server.py, add the code for [GET] and [POST], that allows the user to update, and delete news items </li>
         <li> Test queries! </li>
     </ul>
-
 
 
     <img class="img-fluid mx-auto d-block w-75 my-5" src="assets/images/CRUD_plan.png" alt="Three browser views">
@@ -483,6 +494,7 @@
         now I know that [GET] retrieves data from some requested source whilst [POST] processes and sends data to a
         specified server.
     </p>
+
 <!-- ******************************************************* -->
 
 <!-- Sprint Nine -->
@@ -499,6 +511,18 @@
     </ul>
 
     <img class="img-fluid mx-auto d-block w-75 my-5" src="assets/images/PasteriaPlanning-LogIn_Diagram.png" alt="Three browser views">
+
+     <h3> Testing </h3>
+        <div class="row mb-3">
+        <div class="col-md-6 my-2">
+            <h4> Initial test of the post command </h4>
+            <img class="img-fluid mx-auto d-block" src="assets/images/S9_test.png">
+        </div>
+        <div class="col-md-4 my-2">
+            <h4> Ensuring that a valid email is given using the email input-type </h4>
+            <img class="img-fluid mx-auto d-block" src="assets/images/S9_catch_ex.png">
+        </div>
+        </div>
 
     <h5>Reflection</h5>
     <p>
@@ -553,6 +577,49 @@
         <li> Add a basic form </li>
     </ul>
 
+     <h3> Testing </h3>
+        <div class="row mb-3">
+        <div class="col-md-4 my-2">
+            <h4> Test query! (server route code) </h4>
+            <img class="img-fluid mx-auto d-block" src="assets/images/S11_test.png">
+        </div>
+        <div class="col-md-4 my-2">
+            <h4> General HTML </h4>
+            <img class="img-fluid mx-auto d-block" src="assets/images/S11_generalhtml.png">
+        </div>
+        <div class="col-md-4 my-2">
+            <h4> Front-end design using cards </h4>
+            <img class="img-fluid mx-auto d-block" src="assets/images/S11_frontend.png">
+        </div>
+        </div>
+
+        <h3> Issues </h3>
+        <p>
+            The cards had many issues, firstly, there was a duplication error, secondly, the database information
+            wouldn't load onto the output area. Thirdly, adding more cards would change all of the card heights.
+        </p>
+        <div class="row mb-3">
+        <div class="col-md-6 my-2">
+            <h4> Duplication Error </h4>
+            <img class="img-fluid mx-auto d-block" src="assets/images/S11_error.png">
+        </div>
+        <div class="col-md-6 my-2">
+            <h4> Database information not loading </h4>
+            <img class="img-fluid mx-auto d-block" src="assets/images/S11_error_notloading.png">
+        </div>
+        </div>
+
+        <div class="row mb-3">
+        <div class="col-md-6 my-2">
+            <h4> HTML code </h4>
+            <img class="img-fluid mx-auto d-block" src="assets/images/S11_beforechanges.png">
+        </div>
+        <div class="col-md-6 my-2">
+            <h4> Fixed card-height and duplication error </h4>
+            <img class="img-fluid mx-auto d-block" src="assets/images/S11_fixedcardheight.png">
+        </div>
+        </div>
+
     <h5>Reflection</h5>
     <p>
         This was almost identical to the “recent news” database, therefore, a lot of the same processes went into it
@@ -581,6 +648,56 @@
         <li> Added in a draw_cud which allows authorised users to edit individual rounds if needed </li>
     </ul>
 
+        <h3> Testing </h3>
+        <div class="row mb-3">
+        <div class="col-md-6 my-2">
+            <h4> Test query! (server route code) </h4>
+            <img class="img-fluid mx-auto d-block" src="assets/images/S12_drawtest.png">
+        </div>
+        <div class="col-md-6 my-2">
+            <h4> General HTML </h4>
+            <p> I wanted to use an accordion so I decided to test it out first. This was quite tricky because I needed
+            to do a lot of things with IDs. </p>
+            <img class="img-fluid mx-auto d-block" src="assets/images/S12_ogjuniorpremcode.png">
+        </div>
+        </div>
+
+        <h3> Front-End </h3>
+        <div class="row mb-3">
+        <div class="col-md-6 my-2">
+            <h4> Front-end design of the accordion </h4>
+            <img class="img-fluid mx-auto d-block" src="assets/images/S12_frontend.png">
+        </div>
+        <div class="col-md-6 my-2">
+            <h4> Front-end design of the draw </h4>
+            <img class="img-fluid mx-auto d-block" src="assets/images/S12_draw_frontend.png">
+        </div>
+        </div>
+
+        <h3> Issues </h3>
+        <p>
+            Originally, I had a single page for each of the different grades (Senior Cert, Junior Prem, Prem A) etc. However,
+            I changed to a looping code because my initial method was very inefficient.
+        </p>
+        <div class="row mb-3">
+        <div class="col-md-4 my-2">
+            <h4> OG route code example for junior prem </h4>
+            <img class="img-fluid mx-auto d-block" src="assets/images/S12_ogroutecode.png">
+        </div>
+        <div class="col-md-4 my-2">
+            <h4> This was the final draw route code </h4>
+            <p> I used a looping system. If it detected a change in the variable (round), then it would create a new
+            section. </p>
+            <img class="img-fluid mx-auto d-block" src="assets/images/S12_final_draw_routecode.png">
+        </div>
+         <div class="col-md-4 my-2">
+            <h4> CUD </h4>
+            <p> Since it was essentially one "draw" page, after making an edit I needed to take it back to the page where
+            it made the edit rather than "draw" because "draw" doesn't actually exist. </p>
+            <img class="img-fluid mx-auto d-block" src="assets/images/S12_draw_cud.png">
+        </div>
+        </div>
+
     <h5>Reflection</h5>
     <p>
         This was a tricky task, and some of my plans changed. Initially, I had individual pages for each of the five
@@ -608,6 +725,48 @@
         <li> Create comment_cud so that users can have a place to write their comments </li>
         <li> Writing the queries on the server.py </li>
     </ul>
+
+        <h3> Testing </h3>
+        <div class="row mb-3">
+        <div class="col-md-6 my-2">
+            <h4> Old test query </h4>
+            <p> This was the first test query I tried. Although it was successful, there was a lot of unnecessary code
+            that made it confusing when adding it into the server.py route code. </p>
+            <img class="img-fluid mx-auto d-block" src="assets/images/S13_oldtest.png">
+        </div>
+        <div class="col-md-6 my-2">
+            <h4> New test query </h4>
+            <p> I changed some of the code, and this was a lot simpler! </p>
+            <img class="img-fluid mx-auto d-block" src="assets/images/S13_newtest.png">
+        </div>
+        </div>
+
+        <h3> Front-end Ideas </h3>
+        <div class="row mb-3">
+        <div class="col-md-6 my-2">
+            <h4> Final HTML for front-end </h4>
+            <img class="img-fluid mx-auto d-block" src="assets/images/S13_finalcomment.png">
+        </div>
+        <div class="col-md-6 my-2">
+            <h4> Here is the final comment output on the site </h4>
+            <img class="img-fluid mx-auto d-block" src="assets/images/S13_finalcommentoutput.png">
+        </div>
+        </div>
+
+        <h3> Issues </h3>
+        <div class="row mb-3">
+        <div class="col-md-6 my-2">
+            <h4> Old-code not working with server.py </h4>
+            <p> As mentioned earlier, it was really difficult trying to get the old code to work with the server.py,
+            and I was adding things like dictionaries, and it wasn't working (especially the values tuple because I
+                didn't know what to reference). </p>
+            <img class="img-fluid mx-auto d-block" src="assets/images/S13_errornewscode.png">
+        </div>
+        <div class="col-md-6 my-2">
+            <h4> This is the final fixed news server route code (inc comment section) </h4>
+            <img class="img-fluid mx-auto d-block" src="assets/images/S13_fixednews.png">
+        </div>
+        </div>
 
     <h5>Reflection</h5>
     <p>
