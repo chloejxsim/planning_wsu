@@ -196,7 +196,133 @@
     <img class="img-fluid mx-auto d-block w-75 my-5" src="/assets/images/layoutdesign.png" alt="Front Board">
     <hr>
 
-<!-- Beginning of Sprints -->
+<!-- ******************************************************* -->
+
+<!-- Sprint One -->
+
+<h3> Sprint One </h3>
+    <h4> Aim: Work out the layout design </h4>
+
+    <p style="text-align:center"> <b>Screenshots of the SQL installer file</b> </p>
+
+    <div class="row mb-3">
+        <div class="col-md-6 my-2">
+           <img class="img-fluid mx-auto d-block" src="assets/images/SQLinstaller.png">
+        </div>
+        <div class="col-md-6 my-2">
+            <img class="img-fluid mx-auto d-block" src="assets/images/SQLinstaller2.png">
+        </div>
+    </div>
+
+    <h5>Reflection</h5>
+    <p>
+    </p>
+
+<!-- ******************************************************* -->
+
+<!-- Sprint Two -->
+
+<h3> Sprint Two </h3>
+    <h4> Aim: Design of the homepage </h4>
+
+    <a href="https://github.com/users/chloejxsim/projects/7/views/1">Planning Board for Homepage</a>
+    <img class="img-fluid mx-auto d-block w-75 my-5" src="assets/images/homepage_projectboard.png" alt="Planning Board Screenshot">
+
+    <p>The data plan for these tables is below</p>
+    <img class="img-fluid mx-auto d-block w-75 my-5" src="assets/images/news_member_dataplan.png"  alt="Database Plans">
+
+    <p style="text-align:center"> <b>Screenshots of the SQL installer file</b> </p>
+
+    <div class="row mb-3">
+        <div class="col-md-6 my-2">
+           <img class="img-fluid mx-auto d-block" src="assets/images/SQLinstaller.png">
+        </div>
+        <div class="col-md-6 my-2">
+            <img class="img-fluid mx-auto d-block" src="assets/images/SQLinstaller2.png">
+        </div>
+    </div>
+
+    <h5>Reflection</h5>
+    <p>
+    </p>
+
+<!-- ******************************************************* -->
+
+<!-- Sprint Three -->
+
+<h3> Sprint Three </h3>
+    <h4> Aim: Competitions page design </h4>
+
+    <a href="https://github.com/users/chloejxsim/projects/8/views/1">Planning Board for Competitions Page Front-end</a>
+    <img class="img-fluid mx-auto d-block w-75 my-5" src="assets/images/competitions_projectboard.png" alt="Planning Board Screenshot">
+
+    <p style="text-align:center"> <b>Screenshots of the SQL installer file</b> </p>
+
+    <div class="row mb-3">
+        <div class="col-md-6 my-2">
+           <img class="img-fluid mx-auto d-block" src="assets/images/SQLinstaller.png">
+        </div>
+        <div class="col-md-6 my-2">
+            <img class="img-fluid mx-auto d-block" src="assets/images/SQLinstaller2.png">
+        </div>
+    </div>
+
+    <h5>Reflection</h5>
+    <p>
+    </p>
+
+<!-- ******************************************************* -->
+
+<!-- Sprint Four -->
+
+<h3> Sprint Four </h3>
+    <h4> Aim: Work out the news page design </h4>
+
+    <a href="https://github.com/users/chloejxsim/projects/10">Planning Board for News Page (this applies for Sprints 6 to 8)</a>
+    <img class="img-fluid mx-auto d-block w-75 my-5" src="assets/images/news_projectboard.png" alt="Planning Board Screenshot">
+
+    <p>The data plan for these tables is below</p>
+    <img class="img-fluid mx-auto d-block w-75 my-5" src="assets/images/news_member_dataplan.png"  alt="Database Plans">
+
+    <p style="text-align:center"> <b>Screenshots of the SQL installer file</b> </p>
+
+    <div class="row mb-3">
+        <div class="col-md-6 my-2">
+           <img class="img-fluid mx-auto d-block" src="assets/images/SQLinstaller.png">
+        </div>
+        <div class="col-md-6 my-2">
+            <img class="img-fluid mx-auto d-block" src="assets/images/SQLinstaller2.png">
+        </div>
+    </div>
+
+    <h5>Reflection</h5>
+    <p>
+    </p>
+
+<!-- ******************************************************* -->
+
+<!-- Sprint Five -->
+
+<h3> Sprint Five </h3>
+    <h4> Aim: Figuring out the front-end of the resources page </h4>
+
+    <a href="https://github.com/users/chloejxsim/projects/9/views/1">Planning Board for Resources page</a>
+    <img class="img-fluid mx-auto d-block w-75 my-5" src="assets/images/resources_projectboard.png" alt="Planning Board Screenshot">
+
+    <p style="text-align:center"> <b>Screenshots of the SQL installer file</b> </p>
+
+    <div class="row mb-3">
+        <div class="col-md-6 my-2">
+           <img class="img-fluid mx-auto d-block" src="assets/images/SQLinstaller.png">
+        </div>
+        <div class="col-md-6 my-2">
+            <img class="img-fluid mx-auto d-block" src="assets/images/SQLinstaller2.png">
+        </div>
+    </div>
+
+    <h5>Reflection</h5>
+    <p>
+    </p>
 
 <!-- *************************************** -->
 
@@ -354,7 +480,8 @@
         When I first installed the SQL, I didn’t understand what it meant to choose a “dialect”. By using SQLite, this
         means that I can easily add to and reinstall the database if needed. Additionally, I created a test file which will
         be used to test queries before adding them to my server.py file, and before I attach the database to the front-end
-        server page.
+        server page. This test file was a really good idea because it meant that I could test out any code in queries before
+        actually trying to put it in the server route code which would get outputted.
     <br>
         I needed to create the member table first because a couple of my other tables use member_id as a foreign key.
         This process went smoothly, and I created example members to insert into the table. By doing this, it means that
@@ -444,7 +571,8 @@
         container remain the same height as the other container on the page. This was especially true when more news items
         were added. To remedy this, I had to put a fixed height on the container, and allow overflow to scroll which overall
         created a clean look. In this sprint, I had to both put a search query on server.py and then link it to the page
-        where it outputs.
+        where it outputs. There were a few mishaps with typos which meant that I received errors, however, I managed to solve
+        these.
     </p>
 
 <!-- ******************************************************* -->
@@ -503,8 +631,9 @@
     <h5>Reflection</h5>
     <p>
         This was a relatively easy process because it just uses a simple search query to look for members, and if the
-        member doesn’t exist, then an error will come up and it won’t let someone login. I also learnt how to use a
-        dictionary, and to autofill a value so that testing out authorised members' access to various other tables would
+        member doesn’t exist, then an error will come up and it won’t let someone login. I didn't change anything from
+        my initial plan. At one point, I couldn't actually log in because the password wasn't working but that was due
+        to minute errors which I quickly fixed. I also learnt how to use a dictionary, and to autofill a value so that testing out authorised members' access to various other tables would
         be easier in the future.
     </p>
 
@@ -528,9 +657,12 @@
 
     <h5>Reflection</h5>
     <p>
-        Since I already had some practice building forms with the log-in page (because I accidentally did these in the
-        wrong order), this was an easy task. It was interesting learning about the python dictionary, and something that
-        I could use in other databases as well.
+        The sign-up page took a while because I first had to build a confirmation page (which I didn't end up using in the final
+        design). This confirmation page took time with styling and making sure that the form data was being outputted onto
+        the page correctly. However, when I finally got past this hurdle, building the signup page was relatively easy because I
+        already had some practice building forms with the log-in page (because I accidentally did these in the
+        wrong order), therefore, this was an easy task. It was interesting learning about the python dictionary, and
+        something that I could use in other databases as well.
     </p>
 
 <!-- ******************************************************* -->
@@ -601,7 +733,7 @@
     <p>
         This was almost identical to the “recent news” database, therefore, a lot of the same processes went into it
         which made it do-able. There were a few hitches because there was a different front-end look (I was using cards)
-        for these upcoming events, however, eventually I got it working. This issue was that the information wasn’t
+        for these upcoming events, however, eventually I got it working. The main issue was that the information wasn’t
         displaying into the cards, but after figuring out that there were a few small mistakes with the values tuple,
         I fixed them quickly. The cards wouldn’t stay the same height when new information was added into them, however,
         after adding h-100, the cards worked.
@@ -671,7 +803,8 @@
          <div class="col-md-4 my-2">
             <h4> CUD </h4>
             <p> Since it was essentially one "draw" page, after making an edit I needed to take it back to the page where
-            it made the edit rather than "draw" because "draw" doesn't actually exist. </p>
+            it made the edit rather than "draw" because "draw.html" won't show a page. It will only show when the grade variable
+            is associated with it. . </p>
             <img class="img-fluid mx-auto d-block" src="assets/images/S12_draw_cud.png">
         </div>
         </div>
@@ -680,13 +813,17 @@
     <p>
         This was a tricky task, and some of my plans changed. Initially, I had individual pages for each of the five
         grades (Premier Advanced, Premier B… etc), however, this took up a lot of space and I found a way to have one
-        draw page which would open to the correct draw when the link was requested. For draws that didn’t exist (since I
-        didn’t upload all of the draws from this year), an error page would come up. I also had a lot of difficulty linking
-        the edit and the delete buttons to the draw_cud, but managed to fix this. When I finally linked it, I ran into
-        the issue of the page not actually updating with the new lettering, but turns out it was just a typo in the code.
-        Additionally, creating the accordion proved to be difficult. I first tried to create a new separate accordion each
-        time but the code got really messy. In the end, Mr Khouri helped me create a loop which would sense when the round
-        name changed and then create a new section with the corresponding round’s data.
+        draw page which would open to the correct draw when the link was requested. With my initial individual pages, the
+        search query would have to be duplicated each time with the specific grade referenced. When I changed it, it would
+        search the draw for the grade that was requested from the competitions page (when you clicked the link), and that way
+        I only needed one draw page instead of five draw pages. For draw pages that currently had no data (because I couldn't
+        find all of the information of each debate this year), I programmed an error page to come up. The main difficulty I had
+        in this sprint was linking the edit and the delete buttons to the draw_cud, but I managed to fix this. When I finally
+        linked it, I ran into the issue of the page not actually updating with the new information, but turns out it was just
+        a typo in the code. Additionally, creating the accordion proved to be difficult. I first tried to create a new
+        separate accordion each time but the code got really messy, especially with the IDs. In the end, Mr Khouri helped
+        me create a loop which would sense when the round name changed and then create a new section with the
+        corresponding round’s data.
     </p>
 
 <!-- ******************************************************* -->
@@ -749,7 +886,7 @@
     <p>
         This was also quite a difficult task. I initially had a lot of useless code, and although the test_query showed
         that the comments were being received, the actual comments weren’t being loaded onto the page correctly. This
-        meant that I changed the code around, and this one worked. However, there were still some issues with the user
+        led me to try and change the code around, which worked! However, there were still some issues with the user
         not being displayed, and not a clear enough separation between who is speaking / other people’s replies. I managed
         to fix this too! After I added the comments, I realised that the code for the news items was wrong because it wouldn’t
         delete. After looking around, I realised it was because the comments existing were preventing the news item from being
