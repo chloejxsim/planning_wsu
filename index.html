@@ -30,19 +30,19 @@
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="#">Brief</a>
+                <a class="nav-link" href="#br">Brief</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">UX planning</a>
+                <a class="nav-link" href="#ux">UX planning</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Scoping</a>
+                <a class="nav-link" href="#sc">Scoping</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Relevant implications (describe)</a>
+                <a class="nav-link" href="#rid">Relevant implications (describe)</a>
             </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">Front End</a>
+                <a class="nav-link" href="#fe">Front End</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#db">Database</a>
@@ -60,7 +60,7 @@
 
 <div class="container-lg">
 
-    <h2>Brief</h2>
+    <h2 id="br">Brief</h2>
         <p> This year, I was asked to create a website for the Wellington Speaking Union (WSU),
         an organisation that runs public speaking and debating tournaments for students. <br>
         Their old website was outdated, and Brooke, the current President of WSU wanted a redone site
@@ -86,14 +86,14 @@
 
     <hr>
 
-    <h2> Link to user experience planning</h2>
+    <h2 id="ux"> Link to user experience planning</h2>
         <a href="https://docs.google.com/presentation/d/1837LxZPY-De5pDceW_eVrGczzX_ZvOezRHyNEyzi0uM/edit#slide=id.p">
         <img class="img-fluid mx-auto d-block w-75 my-5" src="assets/images/ux_planning_pic_link.png" alt="pic">
         </a>
 
     <hr>
 
-<h2> Scoping </h2>
+<h2 id="sc"> Scoping </h2>
 
     <h3>Project Backlog</h3>
         <a href="https://github.com/users/chloejxsim/projects/3/views/1">Project Backlog Board </a>
@@ -113,9 +113,7 @@
 
 <div class="container-lg mb-2">
 
-    <h2> Relevant Implications (describe) </h2>
-
-    <!-- groovy bootstrap list -->
+    <h2 id="rid"> Relevant Implications (describe) </h2>
 
         <ol class="list-group list-group-numbered">
 
@@ -216,6 +214,17 @@
 
     <h5>Reflection</h5>
     <p>
+        The layout design was one of the most difficult elements, and it had to be done perfectly because it would be
+        showcased on each of the pages. The basic idea with the layout was to get a functional navbar and footer.
+        Creating the initial navbar and footer were easy because I have done it before, however, this year I needed to
+        be aware of how the page would look with a mobile view, or a smaller screen. Therefore, I needed to make the
+        hamburger nav which went well. What was difficult was creating a sticky nav. Since I had done some other overlay
+        things, the sticky nav wasn’t working properly because some of the overlays would go over the sticky nav as well.
+        However, I managed to fix this. I then had some difficulties with the other side of the nav (where the login and
+        signup buttons are) because I didn’t know how to put the two buttons next to each other. At this point, they were
+        just going underneath each other - however, using some mx-auto and also positioning things helped to fix this.
+        With the footer, everyone was ok except for the social media icons. I couldn't centre the icons properly, and the
+        gaps between the text were too large. Once I managed to centre the icons, everything looked good.
     </p>
 
 <!-- ******************************************************* -->
@@ -241,6 +250,15 @@
 
     <h5>Reflection</h5>
     <p>
+        The homepage coding itself went well. The trickiest elements were the cards and the overlays, and the cards took
+        multiple attempts before I got them to all be the same height. I tried h-100, I tried ensuring that all of the text
+        was the same length, but it wasn’t working properly. However, eventually, I managed to fix it. But then, when the
+        page was minimised, the cards weren’t the same height. To fix this, I just needed to do the same bug fix in the
+        media-query section. This page also involved two major overlays: button, and also the photo in the “welcome”
+        section. Although creating the photo overlay was fine, there were issues when the screen was minimised. I managed
+        to get it to fold on top of the photo after a few attempts which looked better than it only going through half
+        of the page. The button overlay was relatively easy to position, but I have had a button flashing blue after the
+        button is clicked, and I have been unable to fix this thus far.
     </p>
 
 <!-- ******************************************************* -->
@@ -266,6 +284,16 @@
 
     <h5>Reflection</h5>
     <p>
+        The competitions page went well in terms of finding good photos. I decided to use cards again, except this time,
+        I used circular images. Although the actual design looked nice, the circular images proved a problem because the
+        difference in the number of cards meant that between the “debating” and “public speaking” sections, the circular
+        images weren’t the same size. Additionally, in the “public speaking” section, the cards were too far apart and
+        therefore looked weird. I managed to fix this by doing mx-auto and also w-50, which made all the circular images
+        look the same, and not be too far apart. I also had a couple of issues with the parallax image. This was the
+        first page where I used a parallax, which is why I struggled here. Initially, I had a yellow backdrop to the text
+        (this was on top of the parallax) image, but I eventually ended up switching that out for plain white text.
+        Additionally, I also had a secondary nav bar to direct users around the page, but that looked clunky and out of
+        place so I ended up getting rid of it.
     </p>
 
 <!-- ******************************************************* -->
@@ -291,6 +319,11 @@
 
     <h5>Reflection</h5>
     <p>
+        The news page took a while to design, but went relatively smoothly. In this sprint, I made a non-functional
+        calendar (which I would later take out). Additionally, I separated the page into two main containers -
+        “upcoming” and “recent” which is where the majority of the database work was outputted. More information
+        about this sprint can be found on my news database reflections as those included front-end designs of the elements
+        within these containers.
     </p>
 
 <!-- ******************************************************* -->
@@ -316,6 +349,14 @@
 
     <h5>Reflection</h5>
     <p>
+        The resources page was fun, and went through several design ideas. Initially, I wanted to do a 2x2 grid,
+        where users would click the corresponding grid (for teachers, for students, for coaches, for judges) to be
+        directed to the resources for the group required. However, I spent a lot of time trying to sort out the columns
+        for these, and it ended up being quite difficult, and looking quite messy. Therefore, I switched the design to
+        an accordion. This was tricky, and there were a few issues with the styling of the title, and keeping it open,
+        however, I managed to fix these relatively quickly. This is the page which has the most external links, and
+        finding good and appropriate resources took a long time, but I think that there is a good collection. Overall,
+        this sprint went well.
     </p>
 
 <!-- *************************************** -->
